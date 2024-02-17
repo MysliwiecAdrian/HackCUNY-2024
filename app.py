@@ -9,10 +9,10 @@ db = SQLAlchemy(app)
 class Tutor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     subject = db.Column(db.String(100), nullable=False)
-    # Add more fields as needed
-
+    
 @app.before_first_request
 def create_tables():
     db.create_all()
@@ -21,12 +21,12 @@ def create_tables():
 def register():
     if request.method == 'POST':
         # Extract form data
-        name = request.form['name']
-        email = request.form['email']
-        subject = request.form['subject']
+        NAME = request.form['NAME']
+        AGE = request.form['AGE']
+        EMAIL = request.form['EMAIL']
+        SUBJECT = request.form['SUBJECT']
         # Create a new Tutor object
-        new_tutor = Tutor(name=name, email=email, subject=subject)
-        # Add more fields as necessary
+        new_tutor = Tutor(NAME=NAME,AGE = AGE, EMAIL=EMAIL, SUBJECT=SUBJECT)
 
         # Add to the database session and commit
         db.session.add(new_tutor)
