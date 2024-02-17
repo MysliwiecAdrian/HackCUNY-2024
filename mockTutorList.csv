@@ -1,4 +1,4 @@
-NAME,AGE,SUBJECT,X,Y
-Adrian,20,Math,100,100
-Rosa,20,Computer Science,200,200
-Isaac,25,Psychology,300,300
+NAME,AGE,EMAIL,SUBJECT,X,Y
+Adrian,20,adrian@gmail.com,Math,100,100
+Rosa,20,rosa@gmail.com,Computer Science,200,200
+Isaac,25,isaac@gmail.com,Psychology,300,300
