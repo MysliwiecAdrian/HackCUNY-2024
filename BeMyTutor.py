@@ -5,14 +5,34 @@
 import pandas as pd
 import folium
 
-libraries = pd.read_csv("LIBRARY_20240216.csv")                     # reads in CSV file with all library locations
-tutors = pd.read_csv("mockTutorList.csv")                           # reads in the list of tutors and their locations
+# Load library and tutor data
+libraries = pd.read_csv("LIBRARY_20240216.csv")
+tutors = pd.read_csv("mockTutorList.csv")
 
-# borough = str(input("Enter the borough of choosing"))             # wasn't sure on the plans but i just kept it here
-# mapNYC = folium.Map(location=[40.75, -74.125], zoom_start=10)     # generates map of NYC (was thinking to make the location change based on the borough of choice)
+# Initialize map (You can later set this dynamically based on user input)
+mapNYC = folium.Map(location=[40.75, -74.125], zoom_start=10)
 
-# plot out all the libraries in that specific borough
-# need to add an overlapping marker or something so that information for the tutors currently there
-# looking into making the markers time sensitive? if its even possible  
+# Function to add markers for libraries
+def add_library_markers(map_object, data):
+    for index, row in data.iterrows():
+        folium.Marker(
+            location=[row['latitude'], row['longitude']],
+            popup=f"Library: {row['name']}",
+            icon=folium.Icon(color='blue', icon='book')
+        ).add_to(map_object)
 
-mapNYC.save(outfile = "output.html")                                # saves the image as an html
+# Function to add markers for tutors
+def add_tutor_markers(map_object, data):
+    for index, row in data.iterrows():
+        folium.Marker(
+            location=[row['latitude'], row['longitude']],
+            popup=f"Tutor: {row['name']} - {row['subject']}",
+            icon=folium.Icon(color='green', icon='graduation-cap', prefix='fa')
+        ).add_to(map_object)
+
+# Add markers to the map
+add_library_markers(mapNYC, libraries)
+add_tutor_markers(mapNYC, tutors)
+
+# Save the map
+mapNYC.save(outfile="output.html")
