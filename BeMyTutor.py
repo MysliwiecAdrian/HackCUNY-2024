@@ -25,8 +25,8 @@ def add_library_markers(map_object, data):
 def add_tutor_markers(map_object, data):
     for index, row in data.iterrows():
         folium.Marker(
-            location=[row['latitude'], row['longitude']],
-            popup=f"Tutor: {row['name']} - {row['subject']}",
+            location=[row['X'], row['Y']],
+            popup=f"Tutor: {row['NAME']} - {row['SUBJECT']}",
             icon=folium.Icon(color='green', icon='graduation-cap', prefix='fa')
         ).add_to(map_object)
 
