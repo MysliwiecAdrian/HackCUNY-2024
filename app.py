@@ -40,8 +40,9 @@ def home():
 # Route to browse tutors
 @app.route('/browse_tutor')
 def browse_tutor():
-    tutors = import_tutor_data()
-    return render_template('browse_tutor.html', tutors=tutors)
+ #   tutors = import_tutor_data()
+  #  return render_template('browse_tutor.html', tutors=tutors)
+    return render_template('output.html')
 
 # Register tutor route
 @app.route('/register_tutor', methods=['GET', 'POST'])
