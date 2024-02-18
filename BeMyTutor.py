@@ -43,4 +43,4 @@ add_markers(mapNYC, libraries, "book", "name")
 add_markers(mapNYC, tutors, "user", "NAME, SUBJECT")
 
 # Save the map
-mapNYC.save(outfile='output.html')
+mapNYC.save(outfile='templates/output.html')
