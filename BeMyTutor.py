@@ -16,8 +16,8 @@ mapNYC = folium.Map(location=[40.75, -74.125], zoom_start=10)
 def add_library_markers(map_object, data):
     for index, row in data.iterrows():
         folium.Marker(
-            location=[row['latitude'], row['longitude']],
-            popup=f"Library: {row['name']}",
+            location=[row['X'], row['Y']],
+            popup=f"Library: {row['NAME']}",
             icon=folium.Icon(color='blue', icon='book')
         ).add_to(map_object)
 
