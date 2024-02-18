@@ -1,37 +1,21 @@
+
 #HackCUNY 2024
 #Be My Tutor
 #Adrian Mysliwiec & Rosa Rivera
 
+import pyarrow
 import pandas as pd
 import folium
 
-# Path to your CSV file
-csv_file = "library.csv"
+mapNYC = folium.Map(location=[40.75,-74.125], zoom_start=10)
 
-# Read the CSV file using Pandas
-data = pd.read_csv(csv_file)
+#tutors = pd.read_csv('mockTutorList.csv')
+libraries = pd.read_csv('library.csv')
 
-# Initialize a Folium map. The location is a list [latitude, longitude], and zoom_start is the initial zoom level.
-# Adjust the location and zoom_start as needed, possibly to the average of your points for centering.
-map = folium.Map(location=[40.7128, -74.0060], zoom_start=10)
+folium.Marker(location = [40.7420577, -74.0101494], icon=folium.Icon(icon='home')).add_to(mapNYC)
+for index,row in libraries.iterrows():
+    lat = row["Latitude"]
+    long = row["Longitude"]
+    folium.Marker([lat,long]).add_to(mapNYC)
 
-# Function to add markers to the map
-def add_markers(map_object, df):
-    for _, row in df.iterrows():
-        # Extracting Latitude, Longitude, and Name
-        latitude = row['X']
-        longitude = row['Y']
-        name = row['Name']  # Adjust this if your CSV uses a different column name for the location name
-
-        # Adding a marker to the map
-        folium.Marker(
-            location=[latitude, longitude],
-            popup=name,
-            icon=folium.Icon(icon='info-sign', color='blue')  # You can customize the icon and color
-        ).add_to(map_object)
-
-# Add markers to the map
-add_markers(map, data)
-
-# Save the map to an HTML file
-map.save('output.html')
+mapNYC.save(outfile='output.html')
