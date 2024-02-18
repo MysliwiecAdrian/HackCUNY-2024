@@ -32,10 +32,10 @@ def import_tutor_data():
         db.session.add(new_tutor)
     db.session.commit()
 
-# Homepage route
+# Define the route for the homepage
 @app.route('/')
 def home():
-    return "Welcome to Be My Tutor!"
+    return render_template('homepage.html')
 
 # Register tutor route
 @app.route('/register_tutor', methods=['GET', 'POST'])
