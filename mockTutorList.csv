@@ -1,4 +1,11 @@
-NAME,AGE,EMAIL,SUBJECT
-Adrian,20,adrian@gmail.com,Math
-Rosa,20,rosa@gmail.com,Computer Science
-Isaac,25,isaac@gmail.com,Psychology
+NAME,AGE,EMAIL,SUBJECT,LATITUDE,LONGITUDE
+Adrian,20,adrian@gmail.com,Math,40.660152,-73.739488
+Rosa,20,rosa@gmail.com,Computer Science,40.743081,-73.825526
+Isaac,25,isaac@gmail.com,Psychology,40.76795,-73.738088
+Liam,22,liam@gmail.com,Engineering,40.734936,-73.755509
+Olivia,23,olivia@gmail.com,Biology,40.677059,-73.74514
+Ethan,24,ethan@gmail.com,History,40.757877,-73.784804
+Emma,21,emma@gmail.com,Art,40.600838,-73.820374
+Noah,26,noah@gmail.com,Physics,40.692284,-73.760112
+Ava,22,ava@gmail.com,Chemistry,40.772173,-73.928757
+Sophia,27,sophia@gmail.com,Literature,40.593066,-73.784341
