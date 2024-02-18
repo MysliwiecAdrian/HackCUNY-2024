@@ -4,23 +4,34 @@
 
 import pandas as pd
 import folium
-import re  # Import the regular expressions library
 
-# Load library
-libraries = pd.read_csv("library.csv")
+# Path to your CSV file
+csv_file = "library.csv"
 
-# Initialize map (You can later set this dynamically based on user input)
-mapNYC = folium.Map(location=[40.75, -74.125], zoom_start=10)
+# Read the CSV file using Pandas
+data = pd.read_csv(csv_file)
 
+# Initialize a Folium map. The location is a list [latitude, longitude], and zoom_start is the initial zoom level.
+# Adjust the location and zoom_start as needed, possibly to the average of your points for centering.
+map = folium.Map(location=[40.7128, -74.0060], zoom_start=10)
 
-for index,row in libraries.iterrows():
-    lat = row["Latitude"]
-    long = row["Longitude"]
-    folium.Marker([lat, long]).add_to(mapNYC)
+# Function to add markers to the map
+def add_markers(map_object, df):
+    for _, row in df.iterrows():
+        # Extracting Latitude, Longitude, and Name
+        latitude = row['Latitude']
+        longitude = row['Longitude']
+        name = row['Name']  # Adjust this if your CSV uses a different column name for the location name
+
+        # Adding a marker to the map
+        folium.Marker(
+            location=[latitude, longitude],
+            popup=name,
+            icon=folium.Icon(icon='info-sign', color='blue')  # You can customize the icon and color
+        ).add_to(map_object)
 
 # Add markers to the map
-#add_library_markers(mapNYC, libraries)
+add_markers(map, data)
 
-
-# Save the map
-mapNYC.save(outfile="output.html")
+# Save the map to an HTML file
+map.save('map_with_markers.html')
