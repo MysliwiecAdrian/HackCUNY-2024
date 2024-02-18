@@ -19,8 +19,8 @@ map = folium.Map(location=[40.7128, -74.0060], zoom_start=10)
 def add_markers(map_object, df):
     for _, row in df.iterrows():
         # Extracting Latitude, Longitude, and Name
-        latitude = row['Latitude']
-        longitude = row['Longitude']
+        latitude = row['X']
+        longitude = row['Y']
         name = row['Name']  # Adjust this if your CSV uses a different column name for the location name
 
         # Adding a marker to the map
