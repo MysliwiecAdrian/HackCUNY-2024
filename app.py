@@ -37,6 +37,12 @@ def import_tutor_data():
 def home():
     return render_template('homepage.html')
 
+# Route to browse tutors
+@app.route('/browse_tutor')
+def browse_tutor():
+    tutors = import_tutor_data()
+    return render_template('browse_tutor.html', tutors=tutors)
+
 # Register tutor route
 @app.route('/register_tutor', methods=['GET', 'POST'])
 def register_tutor():
