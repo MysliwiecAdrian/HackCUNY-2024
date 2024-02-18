@@ -34,4 +34,4 @@ def add_markers(map_object, df):
 add_markers(map, data)
 
 # Save the map to an HTML file
-map.save('map_with_markers.html')
+map.save('output.html')
