@@ -1,4 +1,4 @@
-NAME,Address,City,Postcode,phone,Borough,Latitude,Longitude
+Name,Address,City,Postcode,phone,Borough,X,Y
 Rosedale,144-20 243 Street,Rosedale,11422,(718) 528-8490,QUEENS   ,40.660152,-73.739488
 Bayside,214-20 Northern Boulevard,Bayside,11361,(718) 229-1834,QUEENS   ,40.760363,-73.768588
 Central Library- The Archives,89-11 Merrick Boulevard,Jamaica,11432,(718) 990-0700,QUEENS   ,40.707865,-73.795295
