@@ -19,7 +19,7 @@ def add_library_markers(map_object, data):
         folium.Marker(
             location=[row['Latitude'], row['Longitude']],  # Update these column names based on your CSV structure
             popup=f"Library: {row['NAME']}",  # Assuming there's a 'NAME' column for the library's name
-            icon=folium.Icon(color='blue', icon='book')
+            icon=folium.Icon(icon='book')
         ).add_to(map_object)
 
 # Add markers to the map
