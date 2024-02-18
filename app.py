@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
+import subprocess
 
 app = Flask(__name__)
+subprocess.run(['python', 'BeMyTutor.py'], check=True)
 
 # Database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mytutors.db'
